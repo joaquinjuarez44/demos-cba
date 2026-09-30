@@ -1,44 +1,79 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kumon Alto Alberdi — Córdoba</title>
-<meta name="description" content="Kumon Alto Alberdi en Córdoba. Escribinos por WhatsApp.">
+<title>Kumon Alto Alberdi — Córdoba | Tu página lista</title>
 <style>
-:root{--bg:#0b0e13;--card:#141924;--txt:#e8ecf3;--mut:#8b95a7;--acc:#25d366;--acc2:#128c7e}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5;padding:16px;max-width:480px;margin:0 auto}
-.card{background:var(--card);border:1px solid #232a38;border-radius:16px;padding:20px;margin-bottom:14px}
-h1{font-size:22px;line-height:1.2}
-.cat{display:inline-block;background:#1d2635;color:#9fb4d0;font-size:11px;padding:3px 10px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
-.stars{color:#f5b301;font-size:15px;margin:6px 0}
-.hook{color:var(--mut);font-size:14px;margin-top:8px}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:#062b16;font-weight:700;padding:14px;border-radius:12px;text-decoration:none;font-size:16px;margin:8px 0}
-.btn.alt{background:var(--acc2);color:#fff}
-.btn.ghost{background:transparent;border:1px solid #2a3244;color:var(--txt)}
-ul{list-style:none;margin:6px 0}
-li{padding:8px 0;border-bottom:1px solid #232a38;font-size:15px}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0a0d14;color:#e8ecf3;line-height:1.5;overflow-x:hidden}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px 90px}
+.hero{position:relative;padding:40px 20px 32px;text-align:center;background:linear-gradient(160deg,#0f1622 0%,#0a0d14 60%);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40%;background:radial-gradient(ellipse at 50% 0%,rgba(37,211,102,.14),transparent 55%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.35);color:#25d366;font-size:11px;font-weight:700;letter-spacing:1.2px;padding:6px 14px;border-radius:20px;text-transform:uppercase}
+h1{font-size:30px;line-height:1.15;margin:16px 0 6px;letter-spacing:-.5px}
+.cat{color:#8b95a7;font-size:13px;letter-spacing:.6px;text-transform:uppercase}
+.stars{color:#f5b301;font-size:18px;margin-top:10px}
+.stars span{color:#8b95a7;font-size:13px;margin-left:4px}
+.hook{margin-top:14px;color:#b7c0cf;font-size:15px;max-width:320px;margin-inline:auto}
+.card{background:#111724;border:1px solid #1e2738;border-radius:18px;padding:20px;margin-bottom:14px}
+.lbl{font-size:11px;letter-spacing:1px;color:#8b95a7;text-transform:uppercase;margin-bottom:10px}
+ul{list-style:none}
+li{padding:10px 0;border-bottom:1px solid #1e2738;font-size:15px}
 li:last-child{border:none}
-li::before{content:"✓ ";color:var(--acc);font-weight:700}
-.mut{color:var(--mut);font-size:13px}
-.map{border-radius:12px;width:100%;height:140px;border:0;background:#1a2230;display:block}
-.foot{text-align:center;color:#5a6478;font-size:12px;margin-top:18px;line-height:1.6}
+li::before{content:"✓ ";color:#25d366;font-weight:800}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#062b16;font-weight:800;padding:16px;border-radius:14px;text-decoration:none;font-size:17px;margin:8px 0;box-shadow:0 6px 24px rgba(37,211,102,.25)}
+.btn.alt{background:#128c7e;color:#fff;box-shadow:0 6px 24px rgba(18,140,126,.25)}
+.btn.ghost{background:transparent;border:1px solid #2a3244;color:#e8ecf3;box-shadow:none}
+.money{display:flex;gap:10px;margin-bottom:14px}
+.money .m{flex:1;background:#111724;border:1px solid #1e2738;border-radius:14px;padding:14px;text-align:center}
+.money .m b{display:block;font-size:20px;color:#25d366}
+.money .m span{font-size:11px;color:#8b95a7;letter-spacing:.5px;text-transform:uppercase}
+.map{border-radius:12px;width:100%;height:150px;border:0;background:#1a2230;display:block}
+.mut{color:#8b95a7;font-size:13px}
+.proof{display:flex;align-items:center;gap:10px;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);border-radius:12px;padding:12px;margin-bottom:14px}
+.proof .dot{width:10px;height:10px;border-radius:50%;background:#25d366;flex-shrink:0;box-shadow:0 0 8px #25d366}
+.proof p{font-size:13px;color:#b7c0cf}
+.float{position:fixed;bottom:14px;left:16px;right:16px;max-width:448px;margin:0 auto;z-index:50}
+.float a{display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#062b16;font-weight:800;padding:16px;border-radius:14px;text-decoration:none;font-size:16px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.foot{text-align:center;color:#4a5468;font-size:12px;padding:24px 20px 0;line-height:1.7}
 .foot b{color:#7a8699}
+.tag{display:inline-block;background:#1a2233;color:#9fb4d0;font-size:11px;padding:3px 9px;border-radius:6px;margin:2px 2px 0 0}
 </style></head><body>
-<div class="card">
-<span class="cat">Academia manejo</span>
+<div class="hero">
+<span class="badge">✦ Tu página está lista</span>
 <h1>Kumon Alto Alberdi</h1>
-<div class="stars">★★★★★ <span class="mut">4.9</span></div>
-<p class="hook">El que quiere aprender a manejar consulta por WhatsApp.</p>
+<div class="cat">Academia manejo · Córdoba</div>
+<div class="stars">★★★★★ <span>4.9 en Google</span></div>
+<p class="hook">El que quiere aprender consulta por WhatsApp.</p>
+</div>
+<div class="wrap">
+<div class="money">
+<div class="m"><b>$60k</b><span>1 cliente</span></div>
+<div class="m"><b>$600k</b><span>10 clientes/mes</span></div>
 </div>
 <div class="card">
-<p class="mut" style="margin-bottom:4px">SERVICIOS</p>
-<ul><li>Clases prácticas</li><li>Clases teóricas</li><li>Acompañamiento examen</li><li>Refuerzo</li></ul>
+<p class="lbl">Tus servicios, claros</p>
+<ul><li>Clases prácticas</li><li>Teóricas</li><li>Examen</li><li>Refuerzo</li></ul>
 </div>
-<a class="btn" href="https://wa.me/5493516349951?text=Hola%20Kumon%20Alto%20Alberdi!%20Vi%20su%20p%C3%A1gina%20y%20quiero%20info%20de%20clases.">💬 Escribir por WhatsApp</a>
+<div class="proof">
+<div class="dot"></div>
+<p>Un cliente que te encuentra ahora puede escribirte en <b>1 toque</b>. Sin buscarte el número, sin llamar, sin esperar.</p>
+</div>
+<a class="btn" href="https://wa.me/5493516349951?text=Hola%20Kumon%20Alto%20Alberdi!%20Vi%20su%20p%C3%A1gina%20y%20quiero%20info.">💬 Escribir por WhatsApp</a>
 <a class="btn alt" href="tel:5493516349951">📞 Llamar ahora</a>
 <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Duarte%20Quir%C3%B3s%203018%2C%20X5003%20C%C3%B3rdoba%2C%20Argentina" target="_blank" rel="noopener">📍 Cómo llegar</a>
 <div class="card">
-<p class="mut">📍 Duarte Quirós 3018</p>
+<p class="lbl">Ubicación</p>
+<p class="mut" style="margin-bottom:10px">📍 Duarte Quirós 3018</p>
 <iframe class="map" loading="lazy" src="https://www.google.com/maps?q=Duarte%20Quir%C3%B3s%203018%2C%20X5003%20C%C3%B3rdoba%2C%20Argentina&output=embed&z=15"></iframe>
 </div>
-<div class="foot">Página de muestra generada con la info pública del negocio.<br><b>¿Sos el dueño? Podés tener la tuya en 24hs.</b></div>
+<div class="card">
+<p class="lbl">Esto es solo el preview</p>
+<p class="mut">Tu versión final puede tener: <span class="tag">turnos online</span> <span class="tag">menú/precios</span> <span class="tag">reseñas</span> <span class="tag">galería de fotos</span> <span class="tag">dominio propio</span> <span class="tag">Google Maps optimizado</span></p>
+</div>
+<div class="foot">
+<b>Kumon Alto Alberdi</b> · muestra generada con tu info pública de Google Maps<br>
+¿Sos el dueño? Esta página puede estar online en <b>24 horas</b>.<br>
+Escribinos por WhatsApp y te mostramos cómo quedaría con tu logo y fotos.
+</div>
+</div>
+<div class="float"><a href="https://wa.me/5493516349951?text=Hola%20Kumon%20Alto%20Alberdi!%20Vi%20su%20p%C3%A1gina%20y%20quiero%20info.">💬 Hablar ahora — respondés en minutos</a></div>
 </body></html>
