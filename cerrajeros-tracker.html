@@ -1,0 +1,216 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tracker — 29 cerrajeros CBA</title>
+<style>body{font-family:system-ui;background:#0a0d14;color:#e8ecf3;max-width:640px;margin:0 auto;padding:14px}
+h1{font-size:19px;margin-bottom:4px}
+.sub{color:#8b95a7;font-size:13px;margin-bottom:12px}
+.stats{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.stat{flex:1;min-width:80px;background:#111724;border:1px solid #1e2738;border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:22px}
+.stat span{font-size:11px;color:#8b95a7;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;align-items:center;background:#111724;border:1px solid #1e2738;border-radius:12px;padding:11px 13px;margin-bottom:6px}
+.info b{font-size:14px}.m{color:#8b95a7;font-size:12px}
+.acts{display:flex;gap:5px;align-items:center;flex-shrink:0}
+a{text-decoration:none;font-size:12px;padding:7px 10px;border-radius:8px;font-weight:700}
+a.w{background:#25d366;color:#062b16}
+a.w2{background:#1a2233;color:#9fb4d0;border:1px solid #2a3244}
+button{border:none;cursor:pointer;font-size:11px;padding:7px 10px;border-radius:8px;font-weight:700}
+.pendiente{background:#1a2233;color:#8b95a7}
+.enviado{background:#f5b301;color:#3a2c00}
+respondio{background:#1d4ed8;color:#fff}
+interesado{background:#7c3aed;color:#fff}
+cerrado{background:#25d366;color:#062b16}
+.respondio{background:#1d4ed8;color:#fff}
+</style>
+<script>
+const STATES=["pendiente","enviado","respondio","interesado","cerrado"];
+const saved=JSON.parse(localStorage.getItem("cerrajeros")||"{}");
+function render(){document.querySelectorAll(".row").forEach(r=>{const i=r.dataset.i;const b=r.querySelector(".st");const s=saved[i]||"pendiente";b.className="st "+s;b.textContent=s});upd()}
+function cyc(i){const b=document.querySelector('[data-i="'+i+'"] .st');const cur=b.textContent;const n=STATES[(STATES.indexOf(cur)+1)%STATES.length];saved[i]=n;b.className="st "+n;b.textContent=n;localStorage.setItem("cerrajeros",JSON.stringify(saved));upd()}
+function mark(i,s){saved[i]=s;localStorage.setItem("cerrajeros",JSON.stringify(saved));setTimeout(render,100)}
+function copyLink(i,u){navigator.clipboard.writeText(u);const b=document.querySelector('[data-i="'+i+'"] .w2');b.textContent="copiado!";setTimeout(()=>b.textContent="🔗 demo",1200)}
+function upd(){const c={};Object.values(saved).forEach(s=>c[s]=(c[s]||0)+1);document.getElementById("e").textContent=c.enviado||0;document.getElementById("r").textContent=c.respondio||0;document.getElementById("i").textContent=c.interesado||0;document.getElementById("c").textContent=c.cerrado||0}
+render();
+</script></head><body>
+<h1>🔑 29 cerrajeros — tracker de hoy</h1>
+<p class="sub">Tocá <b>1️⃣ msg</b> (abre WhatsApp con el pitch) → tocá <b>🔗 demo</b> (copia el link) → se lo pegás cuando responda → cambiá el estado con el botón gris.</p>
+<div class="stats">
+<div class="stat"><b id="e">0</b><span>enviados</span></div>
+<div class="stat"><b id="r">0</b><span>respondieron</span></div>
+<div class="stat"><b id="i">0</b><span>interesados</span></div>
+<div class="stat"><b id="c">0</b><span>cerrados</span></div>
+</div>
+<div class="row" data-i="0">
+<div class="info"><b>Cerrajeria Urgencias 24hs</b><br><span class="m">+54 351 459-2470</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543514592470?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20Urgencias%2024hs*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(0,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(0,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-urgencias-24hs.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(0)">pendiente</button>
+</div></div><div class="row" data-i="1">
+<div class="info"><b>Cerrajeria La llave roja</b><br><span class="m">+54 351 634-1799</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543516341799?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20La%20llave%20roja*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(1,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(1,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-la-llave-roja.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(1)">pendiente</button>
+</div></div><div class="row" data-i="2">
+<div class="info"><b>Cerrajeria La Cañada Servicios</b><br><span class="m">+54 351 560-0566</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543515600566?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20La%20Ca%C3%B1ada%20Servicios*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(2,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(2,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-la-canada-servicios.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(2)">pendiente</button>
+</div></div><div class="row" data-i="3">
+<div class="info"><b>Cerrajeria Integral El TUTU</b><br><span class="m">+54 351 220-3535</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543512203535?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20Integral%20El%20TUTU*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(3,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(3,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-integral-el-tutu.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(3)">pendiente</button>
+</div></div><div class="row" data-i="4">
+<div class="info"><b>Cerrajería 24 horas Córdoba Integral</b><br><span class="m">+54 351 351-0103</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543513510103?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%2024%20horas%20C%C3%B3rdoba%20Integral*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(4,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(4,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-24-horas-cordoba-integral.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(4)">pendiente</button>
+</div></div><div class="row" data-i="5">
+<div class="info"><b>Cerrajería 24 hs. a Domicilio. Córdoba.</b><br><span class="m">+54 351 650-1120</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543516501120?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%2024%20hs.%20a%20Domicilio.%20C%C3%B3rdoba.*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(5,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(5,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-24-hs-a-domicilio-cordoba.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(5)">pendiente</button>
+</div></div><div class="row" data-i="6">
+<div class="info"><b>cerrajeria URGENCIAS Y MAS...</b><br><span class="m">+54 351 505-9601</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543515059601?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*cerrajeria%20URGENCIAS%20Y%20MAS...*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(6,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(6,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-urgencias-y-mas.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(6)">pendiente</button>
+</div></div><div class="row" data-i="7">
+<div class="info"><b>Chelo'S cerrajería URGENCIAS 24HS</b><br><span class="m">+54 351 391-6202</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543513916202?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Chelo'S%20cerrajer%C3%ADa%20URGENCIAS%2024HS*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(7,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(7,'https://joaquinjuarez44.github.io/demos-cba/chelo-s-cerrajeria-urgencias-24hs.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(7)">pendiente</button>
+</div></div><div class="row" data-i="8">
+<div class="info"><b>Cerrajería Leandro</b><br><span class="m">+54 351 213-0068</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543512130068?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20Leandro*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(8,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(8,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-leandro.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(8)">pendiente</button>
+</div></div><div class="row" data-i="9">
+<div class="info"><b>Cerrajería CSX 24 hs</b><br><span class="m">+54 351 255-3522</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543512553522?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20CSX%2024%20hs*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(9,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(9,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-csx-24-hs.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(9)">pendiente</button>
+</div></div><div class="row" data-i="10">
+<div class="info"><b>Cerrajeria Valentino</b><br><span class="m">+54 351 804-1278</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543518041278?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20Valentino*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(10,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(10,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-valentino.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(10)">pendiente</button>
+</div></div><div class="row" data-i="11">
+<div class="info"><b>CERRAJERIA MARTINEZ 24HS</b><br><span class="m">+54 351 769-3001</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543517693001?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*CERRAJERIA%20MARTINEZ%2024HS*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(11,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(11,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-martinez-24hs.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(11)">pendiente</button>
+</div></div><div class="row" data-i="12">
+<div class="info"><b>Cerrajeria en Córdoba | Dedos de Oro</b><br><span class="m">+54 351 313-7890</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543513137890?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20en%20C%C3%B3rdoba%20%7C%20Dedos%20de%20Oro*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(12,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(12,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-en-cordoba-dedos-de-oro.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(12)">pendiente</button>
+</div></div><div class="row" data-i="13">
+<div class="info"><b>Jack Polara - Cerrajeria en Cordoba 24 horas</b><br><span class="m">+54 9 351 645-1256</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/5493516451256?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Jack%20Polara%20-%20Cerrajeria%20en%20Cordoba%2024%20horas*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(13,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(13,'https://joaquinjuarez44.github.io/demos-cba/jack-polara-cerrajeria-en-cordoba-24-horas.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(13)">pendiente</button>
+</div></div><div class="row" data-i="14">
+<div class="info"><b>Cerrajeria olea (urgencias)</b><br><span class="m">+54 351 203-4714</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543512034714?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20olea%20(urgencias)*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(14,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(14,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-olea-urgencias.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(14)">pendiente</button>
+</div></div><div class="row" data-i="15">
+<div class="info"><b>Cerrajería Al Paso</b><br><span class="m">+54 351 617-2162</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543516172162?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20Al%20Paso*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(15,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(15,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-al-paso.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(15)">pendiente</button>
+</div></div><div class="row" data-i="16">
+<div class="info"><b>Cerrajería Independencia</b><br><span class="m">+54 351 680-0233</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543516800233?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20Independencia*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(16,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(16,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-independencia.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(16)">pendiente</button>
+</div></div><div class="row" data-i="17">
+<div class="info"><b>JC Cerrajería y Mantenimiento Móvil</b><br><span class="m">+54 9 351 787-1190</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/5493517871190?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*JC%20Cerrajer%C3%ADa%20y%20Mantenimiento%20M%C3%B3vil*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(17,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(17,'https://joaquinjuarez44.github.io/demos-cba/jc-cerrajeria-y-mantenimiento-movil.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(17)">pendiente</button>
+</div></div><div class="row" data-i="18">
+<div class="info"><b>Cerrajeria del automotor Julio</b><br><span class="m">+54 351 471-3341</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543514713341?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20del%20automotor%20Julio*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(18,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(18,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-del-automotor-julio.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(18)">pendiente</button>
+</div></div><div class="row" data-i="19">
+<div class="info"><b>Cerrajería Cordoba</b><br><span class="m">+54 351 758-4879</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543517584879?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20Cordoba*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(19,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(19,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-cordoba.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(19)">pendiente</button>
+</div></div><div class="row" data-i="20">
+<div class="info"><b>Aventin Cerrajería del automotor</b><br><span class="m">+54 351 471-8570</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543514718570?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Aventin%20Cerrajer%C3%ADa%20del%20automotor*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(20,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(20,'https://joaquinjuarez44.github.io/demos-cba/aventin-cerrajeria-del-automotor.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(20)">pendiente</button>
+</div></div><div class="row" data-i="21">
+<div class="info"><b>La Cerrajeria</b><br><span class="m">+54 351 350-3002</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543513503002?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*La%20Cerrajeria*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(21,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(21,'https://joaquinjuarez44.github.io/demos-cba/la-cerrajeria.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(21)">pendiente</button>
+</div></div><div class="row" data-i="22">
+<div class="info"><b>cerrajeria urgencias en cordoba</b><br><span class="m">+54 351 572-7404</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543515727404?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*cerrajeria%20urgencias%20en%20cordoba*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(22,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(22,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-urgencias-en-cordoba.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(22)">pendiente</button>
+</div></div><div class="row" data-i="23">
+<div class="info"><b>cerrajeria el celeste</b><br><span class="m">+54 351 245-0557</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543512450557?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*cerrajeria%20el%20celeste*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(23,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(23,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-el-celeste.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(23)">pendiente</button>
+</div></div><div class="row" data-i="24">
+<div class="info"><b>Cerrajeria Paulo</b><br><span class="m">+54 351 593-0675</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543515930675?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajeria%20Paulo*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(24,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(24,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-paulo.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(24)">pendiente</button>
+</div></div><div class="row" data-i="25">
+<div class="info"><b>Cerrajería</b><br><span class="m">+54 351 632-1857</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543516321857?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(25,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(25,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(25)">pendiente</button>
+</div></div><div class="row" data-i="26">
+<div class="info"><b>Cerrajería El Vasco</b><br><span class="m">+54 351 236-5410</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543512365410?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20El%20Vasco*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(26,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(26,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-el-vasco.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(26)">pendiente</button>
+</div></div><div class="row" data-i="27">
+<div class="info"><b>Rey Cerrajería</b><br><span class="m">+54 351 480-1647</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543514801647?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Rey%20Cerrajer%C3%ADa*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(27,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(27,'https://joaquinjuarez44.github.io/demos-cba/rey-cerrajeria.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(27)">pendiente</button>
+</div></div><div class="row" data-i="28">
+<div class="info"><b>Cerrajería Integral</b><br><span class="m">+54 351 506-1044</span></div>
+<div class="acts">
+<a class="w" href="https://wa.me/543515061044?text=Hola!%20Laburo%20con%20cerrajeros%20de%20urgencias%20de%20C%C3%B3rdoba.%20Vi%20que%20*Cerrajer%C3%ADa%20Integral*%20aparece%20en%20Google%20pero%20no%20tiene%20forma%20de%20que%20el%20cliente%20te%20escriba%20directo%20%E2%80%94%20se%20van%20al%20siguiente%20de%20la%20lista.%20Te%20arm%C3%A9%20una%20muestra%20con%20tu%20nombre%20y%20tel%C3%A9fono.%20%C2%BFTe%20la%20muestro%3F" target="_blank" onclick="mark(28,'enviado')">1️⃣ msg</a>
+<a class="w2" href="#" onclick="copyLink(28,'https://joaquinjuarez44.github.io/demos-cba/cerrajeria-integral.html');return false">🔗 demo</a>
+<button class="st pendiente" onclick="cyc(28)">pendiente</button>
+</div></div>
+</body></html>
